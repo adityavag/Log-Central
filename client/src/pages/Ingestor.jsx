@@ -1,11 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ingest from '../assets/images/ingest.jpg';
 export default function Ingestor() {
+
+  const [formData, setFormData] = useState({
+    level: '',
+    message: '',
+    resourceId: '',
+    timestamp: '',
+    traceId: '',
+    spanId: '',
+    commit: '',
+    metadata: ''
+  });
+
+  const handleInputChange = (e) => {
+    setFormData((prevData) => ({
+      ...prevData, [e.target.name]: [e.target.value]
+    }));
+  }
+  const handleSubmit = (e) => {
+    setFormData(
+      {
+        level: '',
+        message: '',
+        resourceId: '',
+        timestamp: '',
+        traceId: '',
+        spanId: '',
+        commit: '',
+        metadata: ''
+      });
+    console.log('Ingested')
+  }
+
   return (
     <div className='p-12 grid grid-cols-2 max-md:grid-cols-1 max-md:space-y-5 max-sm:grid-cols-1'>
       {/* Form */}
-      <div>
+      <div className='flex flex-col justify-center'>
         <form>
+        <span className='text-2xl font-semibold'>Ingest New Log</span>
           <div className='' id='form'>
             {/* Label */}
             <div>
@@ -13,6 +46,8 @@ export default function Ingestor() {
               <input className='w-full p-1 leading-tight text-gray-700 border rounded focus:outline-none focus:shadow-outline'
                 id="level"
                 type='text'
+                value={formData.level}
+                onChange={handleInputChange}
                 name='level' />
             </div>
             {/* Message */}
@@ -21,6 +56,8 @@ export default function Ingestor() {
               <input className='w-full p-1 leading-tight text-gray-700 border rounded focus:outline-none focus:shadow-outline'
                 id="message"
                 type='text'
+                value={formData.message}
+                onChange={handleInputChange}
                 name='message' />
             </div>
             {/* Resource ID */}
@@ -29,6 +66,8 @@ export default function Ingestor() {
               <input className='w-full p-1 leading-tight text-gray-700 border rounded focus:outline-none focus:shadow-outline'
                 id="resourceId"
                 type='text'
+                value={formData.resourceId}
+                onChange={handleInputChange}
                 name='resourceId' />
             </div>
             {/* TimeStamp */}
@@ -37,6 +76,8 @@ export default function Ingestor() {
               <input className='w-full p-1 leading-tight text-gray-700 border rounded focus:outline-none focus:shadow-outline'
                 id="timestamp"
                 type='text'
+                value={formData.timestamp}
+                onChange={handleInputChange}
                 name='timestamp' />
             </div>
             {/* Trace ID */}
@@ -45,6 +86,8 @@ export default function Ingestor() {
               <input className='w-full p-1 leading-tight text-gray-700 border rounded focus:outline-none focus:shadow-outline'
                 id="traceId"
                 type='text'
+                value={formData.traceId}
+                onChange={handleInputChange}
                 name='traceId' />
             </div>
             {/* Spand ID */}
@@ -53,6 +96,8 @@ export default function Ingestor() {
               <input className='w-full p-1 leading-tight text-gray-700 border rounded focus:outline-none focus:shadow-outline'
                 id="spanId"
                 type='text'
+                value={formData.spanId}
+                onChange={handleInputChange}
                 name='spanId' />
             </div>
             {/* Commit */}
@@ -61,6 +106,8 @@ export default function Ingestor() {
               <input className='w-full p-1 leading-tight text-gray-700 border rounded focus:outline-none focus:shadow-outline'
                 id="commit"
                 type='text'
+                value={formData.commit}
+                onChange={handleInputChange}
                 name='commit' />
             </div>
             {/* Metadata */}
@@ -69,9 +116,16 @@ export default function Ingestor() {
               <input className='w-full p-1 leading-tight text-gray-700 border rounded focus:outline-none focus:shadow-outline'
                 id="metadata"
                 type='text'
+                value={formData.metadata}
+                onChange={handleInputChange}
                 name='metadata' />
             </div>
           </div>
+          <button
+          type='submit'
+          className='bg-[#e297de] p-2 mt-2 w-full rounded-md hover:bg-[#854081] hover:text-white font-semibold'>
+            Ingest
+          </button>
         </form>
       </div>
       {/* Image */}
