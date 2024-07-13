@@ -15,9 +15,13 @@ export default function Landing() {
                             <li>Powerful Query Interface</li>
                         </ul>
                     </div>
+                    <div className='grid grid-cols-2 space-x-3 mt-4'>
+                        <button className=' bg-[#e297de] p-4 rounded-md hover:bg-[#854081] hover:text-white font-semibold'>Ingest Log</button>
+                        <button className=' bg-[#e297de] p-4 rounded-md hover:bg-[#854081] hover:text-white font-semibold'>Query Logs</button>
+                    </div>
                 </div>
             </div>
-            <div><img src={landing} className='animate-up-down max-md:mt-16 max-sm:mt--16'/></div>
+            <div><img src={landing} className='animate-up-down max-md:mt-16 max-sm:mt--16' /></div>
         </div>
     )
 }
