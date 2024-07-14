@@ -1,5 +1,6 @@
 import React from 'react'
 import landing from '../assets/images/landing.jpg';
+import { Link } from 'react-router-dom';
 export default function Landing() {
     return (
         <div className='p-12 grid grid-cols-2 max-md:grid-cols-1 max-md:space-y-5 max-sm:grid-cols-1'>
@@ -16,8 +17,12 @@ export default function Landing() {
                         </ul>
                     </div>
                     <div className='grid grid-cols-2 space-x-3 mt-4'>
-                        <button className=' bg-[#e297de] p-4 rounded-md hover:bg-[#854081] hover:text-white font-semibold'>Ingest Log</button>
-                        <button className=' bg-[#e297de] p-4 rounded-md hover:bg-[#854081] hover:text-white font-semibold'>Query Logs</button>
+                        <Link to="/ingest">
+                        <button className='w-full bg-[#e297de] p-4 rounded-md hover:bg-[#854081] hover:text-white font-semibold'>Ingest Log</button>
+                        </Link>
+                        <Link to="/logs">
+                        <button className='w-full bg-[#e297de] p-4 rounded-md hover:bg-[#854081] hover:text-white font-semibold'>Query Logs</button>
+                        </Link>
                     </div>
                 </div>
             </div>
