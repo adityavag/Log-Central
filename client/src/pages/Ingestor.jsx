@@ -8,7 +8,7 @@ export default function Ingestor() {
     level: '',
     message: '',
     resourceId: '',
-    timestamp: '', // Make sure to handle date/time properly
+    timestamp: '', 
     traceId: '',
     spanId: '',
     commit: '',
@@ -19,7 +19,7 @@ export default function Ingestor() {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value // Use value directly (not wrapped in [])
+      [name]: value
     }));
   };
 
@@ -29,7 +29,7 @@ export default function Ingestor() {
     try {
       await axios.post('http://localhost:3000/logs', formData);
       setFormData({
-        id: '', // Add id if needed
+        id: '', 
         level: '',
         message: '',
         resourceId: '',
